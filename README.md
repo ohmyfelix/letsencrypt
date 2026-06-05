@@ -34,7 +34,7 @@ server {
 
 ```sh
 docker run \
-    -p 80:80 \ 
+    -p 80:80 \
     -v /srv/certs/mydomain.com:/var/www/certs \
     --name le \
     -e DOMAINS='mydomain.com www.mydomain.com' \
@@ -42,7 +42,7 @@ docker run \
     dockette/letsencrypt:latest
 ```
 
-You can add `-it` for interactive shell.
+For local inspection, use `make run` or override the entrypoint with `--entrypoint /bin/bash` so the container opens a shell instead of running `generate.sh` and requesting a real certificate.
 
 After that you will have copies of certificates in your `/srv/certs/mydomain.com/` folder.
 
